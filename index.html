@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StockPro Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-bg">
+  <div class="login-card">
+    <img src="assets/logo.svg" class="logo">
+    <h2>StockPro Dashboard</h2>
+    <p>Professional real-time trading view</p>
+    <input id="email" type="email" placeholder="Email address">
+    <button id="loginBtn">Login</button>
+  </div>
+
+<script>
+document.getElementById("loginBtn").onclick = () => {
+  const email = document.getElementById("email").value.trim();
+  if(!email) return alert("Enter email");
+  localStorage.setItem("email", email);
+  location = "dashboard.html";
+};
+</script>
+</body>
+</html>

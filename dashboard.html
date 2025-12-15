@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StockPro Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app">
+
+<aside class="sidebar">
+  <img src="assets/logo.svg" class="sidebar-logo">
+  <nav>
+    <a id="navDashboard" class="active">Dashboard</a>
+    <a id="navMarkets">Markets</a>
+    <a id="navPortfolio">Portfolio</a>
+  </nav>
+</aside>
+
+<main>
+  <header class="topbar">
+    <span id="user"></span>
+    <button id="logoutBtn" class="logout">Logout</button>
+  </header>
+
+  <!-- DASHBOARD VIEW -->
+  <section id="dashboardView" class="view">
+    <section class="panel">
+      <h3>Subscribe Stocks</h3>
+      <div id="stockList" class="stock-list">
+        <label><input type="checkbox" value="GOOG"> GOOG</label>
+        <label><input type="checkbox" value="TSLA"> TSLA</label>
+        <label><input type="checkbox" value="AMZN"> AMZN</label>
+        <label><input type="checkbox" value="META"> META</label>
+        <label><input type="checkbox" value="NVDA"> NVDA</label>
+      </div>
+      <button id="subBtn">Subscribe</button>
+      <button id="unsubBtn" class="danger">Unsubscribe</button>
+    </section>
+
+    <section class="panel">
+      <h3>Live Prices</h3>
+      <div id="prices" class="grid"></div>
+    </section>
+
+    <section class="panel">
+      <h3>Price Chart</h3>
+      <canvas id="chart"></canvas>
+    </section>
+  </section>
+
+  <!-- MARKETS VIEW -->
+  <section id="marketsView" class="view hidden">
+    <div class="panel">
+      <h3>Markets Overview</h3>
+      <ul>
+        <li>NASDAQ: +1.2%</li>
+        <li>S&P 500: +0.8%</li>
+        <li>DOW JONES: -0.3%</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO VIEW -->
+  <section id="portfolioView" class="view hidden">
+    <div class="panel">
+      <h3>Your Portfolio</h3>
+      <p>Subscribed stocks:</p>
+      <div id="portfolioList"></div>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
